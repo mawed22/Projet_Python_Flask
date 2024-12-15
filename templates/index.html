@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire de retour</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <form id="feedback-form">
+        <img src="{{ url_for('static', filename='logo-dc.png') }}" id="logo" />
+        <h2>Votre retour sur la formation</h2>
+        <div class="form-group">
+            <label for="bootcampname">Nom du bootcamp :</label>
+            <select id="formation" name="formation">
+                <option value="">Sélectionnez une formation</option>
+                <option value="data_engineering">Data Engineering</option>
+                <option value="data_science">Data Science</option>
+                <option value="web_development">Développement Web</option>
+                <option value="cyber_security">Cybersécurité</option>
+                <option value="artificial_intelligence">Intelligence Artificielle</option>
+                <option value="cloud_computing">Cloud Computing</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="prioriteRetour">Priorité de retour</label>
+            <select id="prioriteRetour" name="prioriteRetour">
+                <option value="faible">Faible</option>
+                <option value="moyenne">Moyenne</option>
+                <option value="haute">Haute</option>
+            </select> 
+        </div>       
+        <div class="form-group">
+            <label for="score">Type de retour</label>
+            <select id="typeRetour" name="typeRetour">
+                <option value="">Sélectionnez un type de retour</option>
+                <option value="contenu_cours">Contenu du cours</option>
+                <option value="formateur">Formateur</option>
+                <option value="methodes_pedagogiques">Méthodes pédagogiques</option>
+                <option value="equipements">Équipements</option>
+                <option value="support_cours">Support de cours</option>
+                <option value="activites_extra">Activités extra-scolaires</option>
+                <option value="environnement_apprentissage">Environnement d'apprentissage</option>
+                <option value="communication">Communication</option>
+                <option value="axe_amelioration">Axe d'amélioration</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="date">Date :</label>
+            <input type="text" id="date" name="date" required readonly>
+        </div>
+        <div class="form-group">
+            <label for="rating">Évaluation :</label>
+            <input type="range" id="rating" name="rating" min="1" max="5" required>
+            <span id="ratingvalue"></span>
+        </div>
+        <div class="form-group">
+            <label for="comments">Commentaires :</label>
+            <textarea id="comments" name="comments" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="attachedfiles" class="label-file">Pièces jointes :</label>
+            <input type="file" id="attachedfiles" name="attachedfiles" required>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <input type="checkbox" id="consentement" name="consentement" required>
+                J'accepte que mes données soient traitées dans le cadre de cette enquête.
+            </label>
+        </div>
+        <button type="submit">Soumettre</button>
+    </form>
+</body>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</html>
